@@ -11,7 +11,7 @@ def logl(theta):
         f=f+3*np.log(theta)+x[i]/theta
     return f
 
-hist=TH1D("hist"," ",100,0.,0.)
+hist=TH1D("hist"," ",100,0.,25)
 x=[]
 
 for line in open("Dati_es4.dat"):

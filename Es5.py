@@ -5,12 +5,11 @@ from ROOT import *
 from IPython.display import display, clear_output
 import time
 
-#Soluzion dell'equazione dell'oscillatore armonico forzato
+#Soluzione dell'equazione dell'oscillatore armonico forzato
 def a(x,t):
     return (A*np.sin(w*t)-k*x)/m
 
-#def Verlet_Solve(x,t):
-  #   return x
+
 
 
 

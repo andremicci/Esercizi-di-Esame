@@ -40,9 +40,6 @@ int main(){
   double x0= f.zeros(10);
   cout << x0 << endl;
 
-
-  
-  
   myTF1 f1("f", "log(2+pow(x,2))-2");
   double x1= f1.zeros(5);
   cout << x1 << endl;

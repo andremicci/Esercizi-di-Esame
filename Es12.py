@@ -6,9 +6,11 @@ import matplotlib.pyplot as plt
 import  scipy.stats as stats
 
 
+
+
 rnd=TRandom3()
 rnd.SetSeed(192239)
-h=TH1D("h","h",100,0.0,60)
+h=TH1D("h","h",150,0.0,60)
 
 
 mu=30
@@ -35,9 +37,13 @@ for i in range(ntot):
 
 
 h.Draw()
-print(h.GetEntries())
-D,pvalue=stats.kstest(x1,cdf=stats.poisson.cdf,args=(mu,))
+
+D,pvalue=stats.ks_1samp(x1,stats.poisson.pmf,(30,))
 print(pvalue)
+
+
+
+'''
 h2=TH1D("h2","h2",100,0,60)
 
 f=TF1("f","TMath::Poisson(x,30)",0,60)
@@ -52,10 +58,28 @@ for i in range(1,h.GetNbinsX()):
 
 h2.SetLineColor(kRed)
 h2.Draw("SAME")
+
 #non posso fare il test del chi2 perche ci sono bin con meno di 5 valori.
+#kolmogorov non riesco a farlo
+#Likelihood (perchè dovrei?:Non voglio mica testare che il parametro sia quello)
+
 
 #p=h.Chi2Test(h2)
 #print(p)
 D,p=stats.ks_2samp(x1,x2)
 print(p)
+
+
+
+
+'''
+'''
+f=TF1("f","[1]*TMath::Poisson(x,[0])",0,60)
+f.FixParameter(1,h.GetEntries())
+f.SetParameter(0,30)
+h.Fit("f")
+print(f.GetProb())
+
+'''
+
 gApplication.Run(True)
