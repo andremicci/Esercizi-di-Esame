@@ -30,7 +30,7 @@ print("p-Value=",p)
 
 if p<0.05:
     print("il p-value è minore di 0.05, quindi l'ipotesi nulla (cioè che i dati seguano la pdf)  è rigettata")
-elif:
+else:
     print("Ipotesi nulla accettata")
 
                  

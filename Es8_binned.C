@@ -5,7 +5,7 @@ void Es8_binned(){
 
 
   ifstream file("Dati_es8.dat");
-  TH1D *h=new TH1D("h","h",80,-1.1,1.1);
+  TH1D *h=new TH1D("h","h",80,-1,1);
 
   
   double x;
@@ -22,7 +22,7 @@ void Es8_binned(){
   
   cout << "Fit likelihood binned" << endl;
   
-  TF1 *f=new TF1("f","(3/(6+2*[2]))*(1+[1]*x+[2]*pow(x,2))*[0]",-1.1,1.1);
+  TF1 *f=new TF1("f","(3/(6+2*[2]))*(1+[1]*x+[2]*pow(x,2))*[0]",-1,1);
   f->FixParameter(0,1);
   h->Fit("f","0 MULTI");
 
